@@ -61,3 +61,56 @@ button:hover {
 section h2 {
     color: darkred;
 }
+
+@media screen and (max-width: 768px) {
+
+    body {
+        padding: 10px;
+    }
+
+    header {
+        text-align: center;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav a {
+        display: block;
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    section {
+        width: 100%;
+    }
+
+    .produto {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    input,
+    select,
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    aside {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+}
