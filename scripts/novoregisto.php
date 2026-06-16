@@ -1,5 +1,7 @@
 <?php
 
+require_once "conexao.php";
+
 $db = new SQLite3('../database/loja.db');
 
 echo "<h1>Teste de Registo</h1>";

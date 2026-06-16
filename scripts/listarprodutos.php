@@ -1,5 +1,7 @@
 <?php
 
+require_once "conexao.php";
+
 echo "<h1>Produtos</h1>";
 
 $produtos = ["T-Shirt", "Casaco", "Calças"];
