@@ -2,43 +2,67 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>Produtos</title>
+    <title>StyleWear | Produtos</title>
     <link rel="stylesheet" href="styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
 <header>
-
-    <h1>Produtos</h1>
-
-    <nav>
-        <input type="text" placeholder="Pesquisar produto">
-        <a href="carrinho.html">Carrinho</a>
-        <a href="index.html">Perfil</a>
-    </nav>
-
+    <div class="header-inner">
+        <a class="logo" href="index.html">StyleWear</a>
+        <nav>
+            <a href="produtos.html">Produtos</a>
+            <a href="carrinho.html">Carrinho</a>
+        </nav>
+    </div>
 </header>
 
 <main>
+    <div class="main-wrap">
+        <section class="product-panel">
+            <h2>Novidades</h2>
+            <div class="product-grid">
+                <article class="product-card">
+                    <img src="images/produto.jpg" alt="T-Shirt Preta">
+                    <h3>T-Shirt Preta</h3>
+                    <p>Algodão 100% · Estilo casual</p>
+                    <div class="product-actions">
+                        <a href="produto.html"><button class="secondary">Detalhes</button></a>
+                        <button onclick="adicionarCarrinho('T-Shirt Preta', 19.99, 'images/produto.jpg')">Adicionar</button>
+                    </div>
+                </article>
 
-    <section>
+                <article class="product-card">
+                    <img src="images/produto.jpg" alt="Casaco">
+                    <h3>Casaco</h3>
+                    <p>Forro polar · Ideal para o dia a dia</p>
+                    <div class="product-actions">
+                        <a href="produto.html"><button class="secondary">Detalhes</button></a>
+                        <button onclick="adicionarCarrinho('Casaco', 49.99, 'images/produto.jpg')">Adicionar</button>
+                    </div>
+                </article>
 
-        <article class="produto">
-            <h3>T-Shirt</h3>
-            <p>Preço: 20€</p>
-            <a href="produto.html">Ver Produto</a>
-        </article>
-
-        <article>
-            <h3>Casaco</h3>
-            <p>Preço: 50€</p>
-            <a href="produto.html">Ver Produto</a>
-        </article>
-
-    </section>
-
+                <article class="product-card">
+                    <img src="images/produto.jpg" alt="Calças">
+                    <h3>Calças</h3>
+                    <p>Modelo slim · Versátil</p>
+                    <div class="product-actions">
+                        <a href="produto.html"><button class="secondary">Detalhes</button></a>
+                        <button onclick="adicionarCarrinho('Calças', 39.99, 'images/produto.jpg')">Adicionar</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
 </main>
 
+<footer>
+    <div class="footer-wrap">
+        <p>StyleWear © 2026</p>
+    </div>
+</footer>
+
+<script src="scripts/carrinho.js"></script>
 </body>
 </html>

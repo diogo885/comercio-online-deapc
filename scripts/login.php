@@ -3,8 +3,8 @@
 session_start();
 require_once "conexao.php";
 
-$email = $_POST["email"];
-$password = $_POST["password"];
+$email = trim($_POST["email"] ?? "");
+$password = $_POST["password"] ?? "";
 
 $sql = "SELECT * FROM utilizadores WHERE email = :email AND password = :password";
 
@@ -16,10 +16,8 @@ $result = $stmt->execute();
 $user = $result->fetchArray(SQLITE3_ASSOC);
 
 if ($user) {
-
     $agora = date("Y-m-d H:i:s");
 
-    // atualizar último acesso
     $update = $db->prepare("
         UPDATE utilizadores 
         SET ultimo_acesso = :data 
@@ -33,11 +31,11 @@ if ($user) {
     $_SESSION["user_id"] = $user["id_utilizador"];
     $_SESSION["nome"] = $user["nome"];
 
-    echo "Login efetuado com sucesso!<br>";
-    echo "Último acesso atualizado: " . $agora;
-
+    header("Location: ../produtos.html");
+    exit;
 } else {
-    echo "Credenciais inválidas.";
+    header("Location: ../index.html");
+    exit;
 }
 
 ?>

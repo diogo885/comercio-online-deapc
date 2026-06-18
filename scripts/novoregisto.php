@@ -2,24 +2,28 @@
 
 require_once "conexao.php";
 
-echo "<h1>Teste de Registo</h1>";
+$nome = trim($_POST["nome"] ?? "");
+$email = trim($_POST["email"] ?? "");
+$password = $_POST["password"] ?? "";
 
-$nome = $_POST["nome"];
-$email = $_POST["email"];
-$password = $_POST["password"];
+if ($nome === "" || $email === "" || $password === "") {
+    header("Location: ../index.html");
+    exit;
+}
 
-echo "Nome: " . $nome . "<br>";
-echo "Email: " . $email . "<br>";
-echo "Password: " . $password . "<br>";
+$stmt = $db->prepare(
+    "INSERT INTO utilizadores (nome, email, password) VALUES (:nome, :email, :password)"
+);
+$stmt->bindValue(":nome", $nome, SQLITE3_TEXT);
+$stmt->bindValue(":email", $email, SQLITE3_TEXT);
+$stmt->bindValue(":password", $password, SQLITE3_TEXT);
 
-// SQL (ainda versão simples como tinhas)
-$sql = "INSERT INTO utilizadores (nome, email, password)
-        VALUES ('$nome', '$email', '$password')";
-
-if ($db->exec($sql)) {
-    echo "<br><strong>Utilizador registado com sucesso!</strong>";
+if ($stmt->execute()) {
+    header("Location: ../index.html");
+    exit;
 } else {
-    echo "<br><strong>Erro ao registar utilizador.</strong>";
+    header("Location: ../index.html");
+    exit;
 }
 
 ?>

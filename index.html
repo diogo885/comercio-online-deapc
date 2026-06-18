@@ -2,112 +2,72 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>Loja de Roupa - Início</title>
+    <title>StyleWear | Início</title>
     <link rel="stylesheet" href="styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
 <header>
-    <h1>Loja de Roupa</h1>
+    <div class="header-inner">
+        <a class="logo" href="index.html">StyleWear</a>
+        <nav>
+            <a href="produtos.html">Coleções</a>
+            <a href="carrinho.html">Carrinho</a>
+        </nav>
+    </div>
 </header>
 
 <main>
+    <div class="main-wrap">
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Moda que combina conforto e estilo</h1>
+                <p>Descobre a nova coleção de peças essenciais para o teu dia a dia.</p>
+                <a href="produtos.html"><button>Ver coleção</button></a>
+            </div>
+            <div class="hero-visual">Imagem editorial da coleção</div>
+        </section>
 
-    <section>
-        <h2>Banner Promocional</h2>
-        <p>Promoções e novidades da loja.</p>
-    </section>
+        <section class="auth-layout">
+            <div class="auth-panel">
+                <h2>Registo</h2>
+                <form action="scripts/novoregisto.php" method="POST" onsubmit="return validarRegisto();">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" required>
 
-    <section>
-        <h2>Registo/Login</h2>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
 
-        <form>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
 
-            <label>Nome:</label>
-            <input type="text">
+                    <button type="submit">Registar</button>
+                </form>
+            </div>
 
-            <br><br>
+            <div class="auth-panel">
+                <h2>Login</h2>
+                <form action="scripts/login.php" method="POST">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="email" required>
 
-            <label>Idade:</label>
-            <input type="number">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" required>
 
-            <br><br>
-
-            <label>Email:</label>
-            <input type="email">
-
-            <br><br>
-
-            <label>Número:</label>
-            <input type="tel">
-
-            <br><br>
-
-            <button type="submit">Entrar</button>
-
-        </form>
-    </section>
-
+                    <button type="submit">Entrar</button>
+                </form>
+            </div>
+        </section>
+    </div>
 </main>
 
 <footer>
-    <p>Loja Online de Roupa</p>
+    <div class="footer-wrap">
+        <p>StyleWear © 2026</p>
+    </div>
 </footer>
-<form action="scripts/novoregisto.php" method="post" onsubmit="return validarRegisto();">
-    Nome:
-    <input type="text" name="nome">
 
-    Email:
-    <input type="email" name="email">
-
-    Password:
-    <input type="password" name="password">
-
-    <input type="submit" value="Registar">
-</form>
 <script src="scripts/validacao.js"></script>
 </body>
 </html>
-
-<h2>Registo</h2>
-
-<form action="scripts/novoregisto.php" method="POST">
-
-    <label>Nome:</label>
-    <input type="text" name="nome">
-
-    <br><br>
-
-    <label>Email:</label>
-    <input type="email" name="email">
-
-    <br><br>
-
-    <label>Password:</label>
-    <input type="password" name="password">
-
-    <br><br>
-
-    <button type="submit">Registar</button>
-
-</form>
-
-<h2>Login</h2>
-
-<form action="scripts/login.php" method="POST">
-
-    <label>Email:</label>
-    <input type="email" name="email">
-
-    <br><br>
-
-    <label>Password:</label>
-    <input type="password" name="password">
-
-    <br><br>
-
-    <button type="submit">Entrar</button>
-
-</form>
-

@@ -2,54 +2,58 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>Produto</title>
+    <title>StyleWear | Produto</title>
     <link rel="stylesheet" href="styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
 <header>
-
-    <h1>Detalhes do Produto</h1>
-
-    <nav>
-        <a href="produtos.html">Produtos</a>
-        <a href="carrinho.html">Carrinho</a>
-    </nav>
-
+    <div class="header-inner">
+        <a class="logo" href="index.html">StyleWear</a>
+        <nav>
+            <a href="produtos.html">Produtos</a>
+            <a href="carrinho.html">Carrinho</a>
+        </nav>
+    </div>
 </header>
 
 <main>
+    <div class="main-wrap">
+        <section class="detail-panel">
+            <div class="detail-layout">
+                <div class="detail-image">
+                    <img src="images/produto.jpg" alt="Produto">
+                </div>
+                <div class="detail-info">
+                    <h2>T-Shirt Preta</h2>
+                    <p class="detail-price">19,99€</p>
+                    <p>Peça casual em algodão, perfeita para combinar com qualquer look.</p>
+                    <form>
+                        <label for="tamanho">Tamanho</label>
+                        <select id="tamanho">
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                        </select>
 
-    <section>
+                        <label for="quantidade">Quantidade</label>
+                        <input type="number" id="quantidade" min="1" value="1">
 
-        <img src="images/produto.jpg" alt="Produto" width="200">
-
-        <h2>Nome do Produto</h2>
-
-        <p>Preço: 60€</p>
-
-        <label>Tamanho:</label>
-        <select>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-        </select>
-
-        <br><br>
-
-        <label>Quantidade:</label>
-        <input type="number" min="1">
-
-        <br><br>
-
-        <button onclick="adicionarCarrinho('T-Shirt Preta')">
-        Adicionar ao Carrinho
-        </button>
-
-    </section>
-
+                        <button type="button" onclick="adicionarCarrinho('T-Shirt Preta', 19.99, 'images/produto.jpg')">Adicionar ao Carrinho</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
 </main>
+
+<footer>
+    <div class="footer-wrap">
+        <p>StyleWear © 2026</p>
+    </div>
+</footer>
+
 <script src="scripts/carrinho.js"></script>
 </body>
 </html>

@@ -2,71 +2,41 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>Carrinho</title>
+    <title>StyleWear | Carrinho</title>
     <link rel="stylesheet" href="styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
 <header>
-    <h1>Carrinho de Compras</h1>
+    <div class="header-inner">
+        <a class="logo" href="index.html">StyleWear</a>
+        <nav>
+            <a href="produtos.html">Produtos</a>
+            <a href="carrinho.html">Carrinho</a>
+        </nav>
+    </div>
 </header>
 
 <main>
-
-    <section>
-
-        <h2>Produtos no Carrinho</h2>
-
-        <p>T-Shirt - Quantidade: 1 - 20€</p>
-        <p>Casaco - Quantidade: 1 - 50€</p>
-
-        <h3>Total: 70€</h3>
-
-        <button>Finalizar Compra</button>
-
-    </section>
-
-    <section>
-
-        <h2>Dados de Pagamento</h2>
-
-        <form>
-
-            <label>Nome:</label>
-            <input type="text">
-
-            <br><br>
-
-            <label>Morada:</label>
-            <input type="text">
-
-            <br><br>
-
-            <label>Cartão:</label>
-            <input type="text">
-
-        </form>
-
-    </section>
-
+    <div class="main-wrap">
+        <section class="cart-panel">
+            <h2>O seu carrinho</h2>
+            <div id="cartItems" class="cart-list"></div>
+            <div class="cart-summary">
+                <h3 id="cartTotal">Total: 0,00€</h3>
+                <button type="button">Finalizar Compra</button>
+            </div>
+        </section>
+    </div>
 </main>
 
+<footer>
+    <div class="footer-wrap">
+        <p>StyleWear © 2026</p>
+    </div>
+</footer>
+
+<script src="scripts/carrinho.js"></script>
 </body>
 </html>
-
-<form action="scripts/adicionarcarrinho.php" method="POST">
-
-    <label>Produto:</label>
-    <input type="text" name="produto">
-
-    <br><br>
-
-    <label>Quantidade:</label>
-    <input type="number" name="quantidade">
-
-    <br><br>
-
-    <button type="submit">Adicionar</button>
-
-</form>
