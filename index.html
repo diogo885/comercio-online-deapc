@@ -54,7 +54,7 @@
 <footer>
     <p>Loja Online de Roupa</p>
 </footer>
-<form action="scripts/novoregisto.php" method="post">
+<form action="scripts/novoregisto.php" method="post" onsubmit="return validarRegisto();">
     Nome:
     <input type="text" name="nome">
 
@@ -66,6 +66,7 @@
 
     <input type="submit" value="Registar">
 </form>
+<script src="scripts/validacao.js"></script>
 </body>
 </html>
 
@@ -109,3 +110,4 @@
     <button type="submit">Entrar</button>
 
 </form>
+
