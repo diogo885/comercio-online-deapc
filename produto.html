@@ -23,24 +23,24 @@
         <section class="detail-panel">
             <div class="detail-layout">
                 <div class="detail-image">
-                    <img src="images/produto.jpg" alt="Produto">
+                    <img id="produtoImagem" src="images/produto.jpg" alt="Produto">
                 </div>
                 <div class="detail-info">
-                    <h2>T-Shirt Preta</h2>
-                    <p class="detail-price">19,99€</p>
-                    <p>Peça casual em algodão, perfeita para combinar com qualquer look.</p>
+                    <h2 id="produtoNome">T-Shirt Preta</h2>
+                    <p id="produtoPreco" class="detail-price">19,99€</p>
+                    <p id="produtoDescricao">Peça casual em algodão, perfeita para combinar com qualquer look.</p>
                     <form>
                         <label for="tamanho">Tamanho</label>
                         <select id="tamanho">
-                            <option>S</option>
-                            <option>M</option>
-                            <option>L</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
                         </select>
 
                         <label for="quantidade">Quantidade</label>
                         <input type="number" id="quantidade" min="1" value="1">
 
-                        <button type="button" onclick="adicionarCarrinho('T-Shirt Preta', 19.99, 'images/produto.jpg')">Adicionar ao Carrinho</button>
+                        <button id="btnAdicionar" type="button">Adicionar ao Carrinho</button>
                     </form>
                 </div>
             </div>
@@ -55,5 +55,72 @@
 </footer>
 
 <script src="scripts/carrinho.js"></script>
+<script>
+const catalogo = {
+    tshirt: {
+        nome: 'T-Shirt Preta',
+        preco: 19.99,
+        imagem: 'images/produto.jpg',
+        descricao: 'Peça casual em algodão, perfeita para combinar com qualquer look.'
+    },
+    casaco: {
+        nome: 'Casaco',
+        preco: 49.99,
+        imagem: 'images/produto.jpg',
+        descricao: 'Forro polar e design moderno, ideal para o dia a dia.'
+    },
+    calcas: {
+        nome: 'Calças',
+        preco: 39.99,
+        imagem: 'images/produto.jpg',
+        descricao: 'Modelo slim, versátil e confortável para qualquer ocasião.'
+    },
+    vestido: {
+        nome: 'Vestido Floral',
+        preco: 29.99,
+        imagem: 'images/produto.jpg',
+        descricao: 'Vestido leve com padrão floral, perfeito para dias mais quentes.'
+    },
+    jaqueta: {
+        nome: 'Jaqueta Denim',
+        preco: 59.99,
+        imagem: 'images/produto.jpg',
+        descricao: 'Jaqueta denim casual com um visual moderno e versátil.'
+    },
+    sapatos: {
+        nome: 'Sapatos Urbanos',
+        preco: 69.99,
+        imagem: 'images/produto.jpg',
+        descricao: 'Sapatos confortáveis com design urbano para todas as ocasiões.'
+    }
+};
+
+const params = new URLSearchParams(window.location.search);
+const chave = params.get('produto') || 'tshirt';
+const produto = catalogo[chave] || catalogo.tshirt;
+
+document.getElementById('produtoNome').textContent = produto.nome;
+document.getElementById('produtoPreco').textContent = `${produto.preco.toFixed(2).replace('.', ',')}€`;
+document.getElementById('produtoDescricao').textContent = produto.descricao;
+document.getElementById('produtoImagem').src = produto.imagem;
+document.getElementById('produtoImagem').alt = produto.nome;
+
+const tamanhoSelect = document.getElementById('tamanho');
+if (produto.nome === 'Sapatos Urbanos') {
+    tamanhoSelect.innerHTML = '';
+    ['41', '42', '43'].forEach(tamanho => {
+        const option = document.createElement('option');
+        option.value = tamanho;
+        option.textContent = tamanho;
+        tamanhoSelect.appendChild(option);
+    });
+}
+
+document.getElementById('btnAdicionar').addEventListener('click', function () {
+    const quantidade = parseInt(document.getElementById('quantidade').value, 10) || 1;
+    const tamanho = document.getElementById('tamanho').value;
+    adicionarCarrinho(produto.nome, produto.preco, produto.imagem, quantidade, tamanho);
+});
+</script>
 </body>
 </html>

@@ -6,18 +6,21 @@ function guardarCarrinho(carrinho) {
     localStorage.setItem('carrinho', JSON.stringify(carrinho));
 }
 
-function adicionarCarrinho(nomeProduto, preco, imagem) {
+function adicionarCarrinho(nomeProduto, preco, imagem, quantidade = 1, tamanho = 'M') {
     const carrinho = getCarrinho();
-    const itemExistente = carrinho.find(item => item.nome === nomeProduto);
+    const chaveItem = `${nomeProduto}-${tamanho}`;
+    const itemExistente = carrinho.find(item => item.chave === chaveItem);
 
     if (itemExistente) {
-        itemExistente.quantidade += 1;
+        itemExistente.quantidade += quantidade;
     } else {
         carrinho.push({
+            chave: chaveItem,
             nome: nomeProduto,
             preco: preco,
             imagem: imagem,
-            quantidade: 1
+            quantidade: quantidade,
+            tamanho: tamanho
         });
     }
 
@@ -26,8 +29,8 @@ function adicionarCarrinho(nomeProduto, preco, imagem) {
     alert(nomeProduto + " adicionado ao carrinho.");
 }
 
-function removerDoCarrinho(nomeProduto) {
-    let carrinho = getCarrinho().filter(item => item.nome !== nomeProduto);
+function removerDoCarrinho(chaveProduto) {
+    let carrinho = getCarrinho().filter(item => item.chave !== chaveProduto);
     guardarCarrinho(carrinho);
     atualizarCarrinho();
 }
@@ -61,10 +64,11 @@ function atualizarCarrinho() {
                 <img src="${item.imagem}" alt="${item.nome}">
                 <div>
                     <h4>${item.nome}</h4>
+                    <p>Tamanho: ${item.tamanho}</p>
                     <p>${item.quantidade} x ${item.preco.toFixed(2)}€</p>
                 </div>
             </div>
-            <button class="remove-btn" onclick="removerDoCarrinho('${item.nome}')">Remover</button>
+            <button class="remove-btn" onclick="removerDoCarrinho('${item.chave}')">Remover</button>
         `;
         cartItems.appendChild(div);
     });
