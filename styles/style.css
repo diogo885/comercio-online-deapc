@@ -522,6 +522,21 @@ footer {
     background: var(--primary-hover);
 }
 
+.btn-sobre-nos {
+    background: var(--accent);
+    color: var(--primary);
+    padding: 12px 32px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+.btn-sobre-nos:hover {
+    background: #d3b07d;
+}
+
 @media (max-width: 600px) {
     .modal-content {
         width: 95%;

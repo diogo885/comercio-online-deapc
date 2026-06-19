@@ -206,3 +206,20 @@ function processarPagamento() {
         alert('Erro ao processar o pagamento. Tente novamente.');
     });
 }
+
+// Funções para Modal de Sobre Nós
+function mostrarSobreNos() {
+    document.getElementById('modalSobreNos').style.display = 'block';
+}
+
+function fecharSobreNos() {
+    document.getElementById('modalSobreNos').style.display = 'none';
+}
+
+// Fechar modal de Sobre Nós ao clicar fora
+window.addEventListener('click', function(event) {
+    const modalSobreNos = document.getElementById('modalSobreNos');
+    if (modalSobreNos && event.target == modalSobreNos) {
+        modalSobreNos.style.display = 'none';
+    }
+});
