@@ -25,9 +25,67 @@
             <div id="cartItems" class="cart-list"></div>
             <div class="cart-summary">
                 <h3 id="cartTotal">Total: 0,00€</h3>
-                <button type="button">Finalizar Compra</button>
+                <button type="button" onclick="mostrarFormularioPagamento()">Finalizar Compra</button>
             </div>
         </section>
+
+        <!-- Modal de Pagamento -->
+        <div id="modalPagamento" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModalPagamento()">&times;</span>
+                <h2>Dados de Pagamento</h2>
+                <form id="formPagamento">
+                    <div class="form-group">
+                        <label for="nomeCliente">Nome Completo:</label>
+                        <input type="text" id="nomeCliente" name="nomeCliente" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="emailCliente">Email:</label>
+                        <input type="email" id="emailCliente" name="emailCliente" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefoneCliente">Telefone:</label>
+                        <input type="tel" id="telefoneCliente" name="telefoneCliente" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="morada">Morada:</label>
+                        <textarea id="morada" name="morada" required rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="codigoPostal">Código Postal:</label>
+                        <input type="text" id="codigoPostal" name="codigoPostal" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="numeroCartao">Número do Cartão:</label>
+                        <input type="text" id="numeroCartao" name="numeroCartao" placeholder="1234 5678 9012 3456" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="validade">Validade:</label>
+                            <input type="text" id="validade" name="validade" placeholder="MM/AA" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV:</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                        </div>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" onclick="fecharModalPagamento()" class="btn-cancelar">Cancelar</button>
+                        <button type="submit" class="btn-pagar">Pagar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal de Sucesso -->
+        <div id="modalSucesso" class="modal" style="display: none;">
+            <div class="modal-content modal-sucesso">
+                <div class="sucesso-icon">✓</div>
+                <h2>Compra Bem Sucedida!</h2>
+                <p id="mensagemSucesso"></p>
+                <button type="button" onclick="voltarAoPrincipio()" class="btn-continuar">Continuar a Comprar</button>
+            </div>
+        </div>
     </div>
 </main>
 
